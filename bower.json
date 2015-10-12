@@ -1,0 +1,19 @@
+{
+  "name": "BucketList_Client",
+  "version": "0.0.0",
+  "description": "Angular app to consume Rails Api",
+  "main": "app.js",
+  "moduleType": [],
+  "authors": [
+    "Seyi"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
