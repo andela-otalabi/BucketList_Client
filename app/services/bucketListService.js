@@ -4,7 +4,12 @@ app.factory('BucketList', function($http){
       return $http.get('http://kickmylist.herokuapp.com/api/v1/bucketlists');
     },
     createBucketList: function(listDetails){
-      return $http.post('http://kickmylist.herokuapp.com/api/v1/bucketlists', listDetails)
-    }
+      return $http({
+        method: 'POST',
+        url: 'http://kickmylist.herokuapp.com/api/v1/bucketlists',
+        headers: { 'Authorization': listDetails.token},
+        data: listDetails
+      });
+    },
   };
 })
