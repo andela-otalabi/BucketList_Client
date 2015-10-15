@@ -1,14 +1,25 @@
 var app = angular.module('bucketlistApp',['ngRoute']);
 
-app.config(function($routeProvider){
-  $routeProvider.when('/', {
+app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
+  $routeProvider
+  .when('/', {
     templateUrl: 'app/partials/bucketlists.html',
     controller: 'bucketListCtrl'
-  }).when('/bucketlists', {
-    templateUrl: 'partials/bucketlists.html',
+  })
+  .when('/bucketlists', {
+    templateUrl: 'app/partials/createBucketlist.html',
     controller: 'bucketListCtrl'
-  }).
-  otherwise({
-    redirectTo: '/app'
+  })
+  .when('/user', {
+    templateUrl: 'app/partials/addUser.html',
+    controller: 'userCtrl'
+  })
+  .when('/login', {
+    templateUrl: 'app/partials/loginUser.html',
+    controller: 'userCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
   });
-});
+
+}]);

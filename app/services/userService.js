@@ -1,13 +1,27 @@
 app.factory('User', function($http){
   return {
     register: function(userDetails){
-      return $http.post('http://kickmylist.herokuapp.com/api/v1/users', userDetails);
+      return $http({
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: userDetails,
+        url: 'http://kickmylist.herokuapp.com/api/v1/users'
+      });
     },
     login: function(loginDetails){
-      return $http.post('http://kickmylist.herokuapp.com/api/v1/auth/login', loginDetails);
+      return $http({
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: loginDetails,
+        url: 'http://kickmylist.herokuapp.com/api/v1/auth/login'
+      });
     },
     logout: function(){
-      return $http.post('http://kickmylist.herokuapp.com/api/v1/users');
+      return $http.get('http://kickmylist.herokuapp.com/api/v1/users');
     }
   };
 })
