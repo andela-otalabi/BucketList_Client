@@ -4,14 +4,22 @@
   </head>
 
   <body>
+    <header ng-controller='IndexCtrl'>
+      <a href="#user" ng-show='!currentUser'>Sign Up</a>
+      <a href="#login" ng-show='!currentUser'>Login</a>
+      <a href="" ng-click="logout()" ng-show='currentUser'>Logout</a>
+    </header>
+
     <div ng-view></div>
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
     <script src="app/services/bucketListService.js"></script>
     <script src="app/services/userService.js"></script>
+    <script src="app/controllers/indexCtrl.js"></script>
     <script src="app/controllers/bucketListCtrl.js"></script>
     <script src="app/controllers/userCtrl.js"></script>
   </body>

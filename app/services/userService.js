@@ -20,8 +20,8 @@ app.factory('User', function($http){
         url: 'http://kickmylist.herokuapp.com/api/v1/auth/login'
       });
     },
-    logout: function(){
-      return $http.get('http://kickmylist.herokuapp.com/api/v1/auth/logout');
+    logout: function(token){
+      return $http.get('http://kickmylist.herokuapp.com/api/v1/auth/logout', token);
     }
   };
 })

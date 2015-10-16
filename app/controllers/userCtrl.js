@@ -1,4 +1,4 @@
-app.controller('userCtrl', ['$scope', 'User', function($scope, User) {
+app.controller('userCtrl', ['$scope', 'User', '$cookies', function($scope, User, $cookies) {
 
   $scope.createUser = function() {
     var userDetails = {
@@ -7,8 +7,7 @@ app.controller('userCtrl', ['$scope', 'User', function($scope, User) {
       password: $scope.password,
       password_confirmation: $scope.confirm_password
     };
-    console.log(userDetails);
-    User.register(userDetails).success(function(response) {
+    User.register(userDetails).success(function(response) { 
       var res = response;
       $scope.message = res.message;
     })
@@ -20,8 +19,9 @@ app.controller('userCtrl', ['$scope', 'User', function($scope, User) {
       password: $scope.password
     };
     User.login(loginDetails).success(function(res) {
-        console.log("response", res);
+      if (res.success = true){
+       $cookies.put('token', JSON.stringify(res.token)); 
+      }
     })
   };
-  
-}])
+}]);

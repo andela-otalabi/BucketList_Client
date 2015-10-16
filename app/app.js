@@ -1,4 +1,4 @@
-var app = angular.module('bucketlistApp',['ngRoute']);
+var app = angular.module('bucketlistApp',['ngRoute', 'ngCookies',]);
 
 app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
   //Enable cross domain calls
