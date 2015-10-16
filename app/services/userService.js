@@ -16,12 +16,12 @@ app.factory('User', function($http){
         headers:{
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        data: loginDetails,
+        params: loginDetails,
         url: 'http://kickmylist.herokuapp.com/api/v1/auth/login'
       });
     },
     logout: function(){
-      return $http.get('http://kickmylist.herokuapp.com/api/v1/users');
+      return $http.get('http://kickmylist.herokuapp.com/api/v1/auth/logout');
     }
   };
 })

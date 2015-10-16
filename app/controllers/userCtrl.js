@@ -16,7 +16,7 @@ app.controller('userCtrl', ['$scope', 'User', function($scope, User) {
 
   $scope.Login = function() {
     var loginDetails = {
-      email: $scope.email,
+      email: $scope.email.toLowerCase(),
       password: $scope.password
     };
     User.login(loginDetails).success(function(res) {
