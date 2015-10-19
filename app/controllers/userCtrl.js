@@ -7,7 +7,7 @@ app.controller('userCtrl', ['$scope', 'User', '$cookies', function($scope, User,
       password: $scope.password,
       password_confirmation: $scope.confirm_password
     };
-    User.register(userDetails).success(function(response) { 
+    User.register(userDetails).success(function(response) {
       var res = response;
       $scope.message = res.message;
     })
@@ -19,9 +19,11 @@ app.controller('userCtrl', ['$scope', 'User', '$cookies', function($scope, User,
       password: $scope.password
     };
     User.login(loginDetails).success(function(res) {
-      if (res.success = true){
-       $cookies.put('token', JSON.stringify(res.token)); 
+      if (res.success = true) {
+        console.log(res);
+        $cookies.put('token', JSON.stringify(res.token));
       }
     })
   };
+
 }]);

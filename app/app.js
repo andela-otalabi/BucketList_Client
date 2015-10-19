@@ -1,13 +1,13 @@
-var app = angular.module('bucketlistApp',['ngRoute', 'ngCookies',]);
+var app = angular.module('bucketlistApp', ['ngRoute', 'ngCookies', ]);
 
-app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
+app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   //Enable cross domain calls
   $httpProvider.defaults.useXDomain = true;
 
   //Remove the header containing XMLHttpRequest used to identify ajax call 
   //that would prevent CORS from working
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    
+
   $routeProvider
   .when('/', {
     templateUrl: 'app/partials/bucketlists.html',
@@ -28,5 +28,4 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
   .otherwise({
     redirectTo: '/'
   });
-
 }]);

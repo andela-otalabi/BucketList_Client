@@ -7,11 +7,11 @@ app.controller('IndexCtrl', ['$scope', '$cookies', '$rootScope', 'User', functio
   $scope.logout = function() {
     var authToken = JSON.parse($cookies.get('token'));
     User.logout(authToken).success(function(res) {
-      if (res.success = true){
-         console.log(res);
+      if (res.success = true) {
+        console.log(res);
         $cookies.remove('token');
       }
-    })     
+    })
   };
-  
+
 }]);
