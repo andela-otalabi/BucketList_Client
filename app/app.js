@@ -17,6 +17,10 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
     templateUrl: 'app/partials/createBucketlist.html',
     controller: 'bucketListCtrl'
   })
+  .when('/showBucketList/:id', {
+    templateUrl: 'app/partials/bucketList.html',
+    controller: 'bucketCtrl'
+   })
   .when('/user', {
     templateUrl: 'app/partials/addUser.html',
     controller: 'userCtrl'
