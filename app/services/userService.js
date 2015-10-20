@@ -17,7 +17,7 @@ app.factory('User', function($http) {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         params: loginDetails,
-        url: 'http://kickmylist.herokuapp.com/api/v1/auth/login'
+        url: 'http://localhost:3000/api/v1/auth/login'
       });
     },
     logout: function(authToken) {

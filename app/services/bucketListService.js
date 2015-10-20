@@ -3,8 +3,15 @@ app.factory('BucketList', function($http){
     allBucketLists: function(){
       return $http.get('http://kickmylist.herokuapp.com/api/v1/bucketlists');
     },
-    createBucketList: function(listDetails){
-      return $http.post('http://kickmylist.herokuapp.com/api/v1/bucketlists', listDetails)
+    createBucketList: function(listDetails, authToken){
+      return $http({
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        params: listDetails,
+        url: 'http://localhost:3000/api/v1/bucketlists?token=' + authToken
+      });
     }
   };
 })
