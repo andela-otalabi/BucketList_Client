@@ -5,6 +5,9 @@
 <div class="form-body">
   <form>
     <input type="text" name="bucketList" required id="bucketList" placeholder="enter bucket list name" ng-model="bucketlistName">
-    <input type="submit" ng-click="addBucketList()"  value="Add">
-  </form>
-</div>     
+    <input type="submit" ng-click="addBucketList()" value="Add">
+  </form>  
+</div> 
+<div class="display-newbucketlist">    
+  <p ng-bind="newBucketlist"></p>
+</div>
