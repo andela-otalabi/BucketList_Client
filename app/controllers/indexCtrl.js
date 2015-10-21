@@ -1,4 +1,4 @@
-app.controller('IndexCtrl', ['$scope', '$cookies', '$rootScope', 'User', function($scope, $cookies, $rootScope, User) {
+app.controller('IndexCtrl', ['$scope', '$cookies', '$rootScope', 'User', '$location', function($scope, $cookies, $rootScope, User, $location) {
 
   if ($cookies.get('token')) {
     $rootScope.currentUser = true;
@@ -8,8 +8,8 @@ app.controller('IndexCtrl', ['$scope', '$cookies', '$rootScope', 'User', functio
     var authToken = JSON.parse($cookies.get('token'));
     User.logout(authToken).success(function(res) {
       if (res.success = true) {
-        console.log(res);
         $cookies.remove('token');
+        $location.path('/');
       }
     })
   };

@@ -1,4 +1,4 @@
-app.controller('userCtrl', ['$scope', 'User', '$cookies', function($scope, User, $cookies) {
+app.controller('userCtrl', ['$scope', 'User', '$cookies', '$location', function($scope, User, $cookies, $location) {
 
   $scope.createUser = function() {
     var userDetails = {
@@ -20,8 +20,13 @@ app.controller('userCtrl', ['$scope', 'User', '$cookies', function($scope, User,
     };
     User.login(loginDetails).success(function(res) {
       if (res.success = true) {
-        console.log(res);
-        $cookies.put('token', JSON.stringify(res.token));
+        if (res.message == 'You have successfully logged in'){
+          $scope.responseMessage = res.message;
+          $cookies.put('token', res.token);
+          $location.path('/bucketlists');
+        }else {
+        $scope.responseMessage = 'Incorrect username or password';
+        }
       }
     })
   };
